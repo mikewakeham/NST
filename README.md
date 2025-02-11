@@ -13,5 +13,5 @@
 </p>
 
 <p align="center">
-  <img src="assets/blue_raccoon_1024.png" width="80%" />
+  <img src="assets/blue_raccoon_1024.png" width="65%" />
 </p>
