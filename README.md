@@ -12,3 +12,6 @@
   <img src="assets/blue.jpg" width="45%" style="display: inline-block;"/>
 </p>
 
+<p align="center">
+  <img src="assets/blue_raccoon_1024.png" width="100%" />
+</p>
