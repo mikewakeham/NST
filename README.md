@@ -8,3 +8,7 @@
 <p align="center">
   <img src="assets/blue_raccoon.png" />
 </p>
+
+<p align="center">
+  <img src="assets/blue_raccoon.gif" />
+</p>
