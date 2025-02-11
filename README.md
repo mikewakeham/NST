@@ -1,10 +1,10 @@
 # NST
 <p align="center">
-  <img src="assets/blue_raccoon.gif" width="50%" />
+  <img src="assets/blue_raccoon.png" />
 </p>
 
 <p align="center">
-  <img src="assets/blue_raccoon.png" />
+  <img src="assets/blue_raccoon.gif" width="50%" />
 </p>
 
 <p align="center">
