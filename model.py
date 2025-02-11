@@ -4,8 +4,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision.models import VGG19_Weights
 
-
-
 def gram_matrix(input):
     batches, channels, height, width = input.size()
 
