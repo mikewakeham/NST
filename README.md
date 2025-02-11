@@ -1,6 +1,6 @@
 # NST
 <p align="center">
-  <img src="assets/blue_raccoon.gif" />
+  <img src="assets/blue_raccoon.gif" width="100%" />
 </p>
 
 <p align="center">
