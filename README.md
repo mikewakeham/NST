@@ -1,11 +1,12 @@
 # NST
-<p align="center">
-  <img src="assets/einstein.png" width="45%" style="display: inline-block;"/>
-  <img src="assets/scream.png" width="45%" style="display: inline-block;"/>
-</p>
 
 <p align="center">
   <img src="assets/einstein_scream2.png" width="60%" />
+</p>
+
+<p align="center">
+  <img src="assets/einstein.png" width="45%" style="display: inline-block;"/>
+  <img src="assets/scream.png" width="45%" style="display: inline-block;"/>
 </p>
 
 ---
