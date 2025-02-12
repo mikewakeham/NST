@@ -8,6 +8,8 @@
   <img src="assets/einstein_scream2.png" width="60%" />
 </p>
 
+---
+
 <p align="center">
   <img src="assets/blue_raccoon.png" />
 </p>
