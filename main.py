@@ -66,10 +66,16 @@ def run_style_transfer(cnn, normalization_mean, normalization_std,
             loss.backward()
 
             run[0] += 1
-            if run[0] % 1 == 0:
+            if run[0] % 10 == 0:
                 print('run {}'.format(run))
                 print('style loss: {:.4f} content loss: {:.4f}'.format(style_score.item(), content_score.item()))
                 print()
+                
+                img_path = f"output/blue_paper/{input_img.shape[2]}/step{run[0]}_size{input_img.shape[2]}.png"
+                step_image = input_img.clone().detach().cpu().squeeze(0) 
+                step_image = torch.clamp(step_image, 0, 1)
+                step_image = transforms.ToPILImage()(step_image)
+                step_image.save(img_path)
 
             return style_score + content_score
 
@@ -85,10 +91,12 @@ def main():
     device = torch.device("mps")
     torch.set_default_device(device)
 
-    content_path = "./input/raccoon_foreground.jpg"
-    style_path = "./input/blue.jpg"
+    content_path = "./input/son.jpeg"
+    style_path = "./input/blue_paper.png"
 
     scales = [256, 512, 1024]
+    style_weights = [100000, 10000, 10000]
+    steps = [300, 100, 200]
     output_img = None
 
     cnn = models.vgg19(weights=VGG19_Weights.IMAGENET1K_V1).features.eval()
@@ -97,7 +105,7 @@ def main():
     cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225])
 
     start_time = time.time()
-    for img_size in scales:
+    for i, img_size in enumerate(scales):
         print(f"Processing scale: {img_size}")
 
         if output_img is None:
@@ -115,8 +123,8 @@ def main():
 
         print(f"Input image size for the model: {input_img.shape}")
 
-        style_weight = 10000
-        num_steps = 400
+        style_weight = style_weights[i]
+        num_steps = steps[i]
         output_img = run_style_transfer(cnn, cnn_normalization_mean, cnn_normalization_std,
                                         content_img, style_img, input_img, style_weight=style_weight, num_steps=num_steps)
         
@@ -124,7 +132,7 @@ def main():
         output_image = (output_cpu * 255).clip(0, 255).astype("uint8")
         output_pil = Image.fromarray(output_image)
 
-        output_pil.save(f"output/blue/output_{img_size}_{style_weight}_{num_steps}.png")
+        output_pil.save(f"output/blue_paper/output_{img_size}_{style_weight}_{num_steps}.png")
 
     total_time = time.time() - start_time
     print(total_time)
