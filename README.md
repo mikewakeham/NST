@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/einstein_scream.png" />
+  <img src="assets/einstein_scream2.png" />
 </p>
 
 <p align="center">
