@@ -71,7 +71,7 @@ def run_style_transfer(cnn, normalization_mean, normalization_std,
                 print('style loss: {:.4f} content loss: {:.4f}'.format(style_score.item(), content_score.item()))
                 print()
                 
-                img_path = f"output/blue_paper/{input_img.shape[2]}/step{run[0]}_size{input_img.shape[2]}.png"
+                img_path = f"output/einstein/{input_img.shape[2]}/step{run[0]}_size{input_img.shape[2]}.png"
                 step_image = input_img.clone().detach().cpu().squeeze(0) 
                 step_image = torch.clamp(step_image, 0, 1)
                 step_image = transforms.ToPILImage()(step_image)
@@ -91,11 +91,11 @@ def main():
     device = torch.device("mps")
     torch.set_default_device(device)
 
-    content_path = "./input/son.jpeg"
-    style_path = "./input/blue_paper.png"
+    content_path = "./input/einstein.jpg"
+    style_path = "./input/scream.jpg"
 
     scales = [256, 512, 1024]
-    style_weights = [100000, 10000, 10000]
+    style_weights = [1000000, 1000000, 1000000]
     steps = [300, 100, 200]
     output_img = None
 
@@ -132,7 +132,7 @@ def main():
         output_image = (output_cpu * 255).clip(0, 255).astype("uint8")
         output_pil = Image.fromarray(output_image)
 
-        output_pil.save(f"output/blue_paper/output_{img_size}_{style_weight}_{num_steps}.png")
+        output_pil.save(f"output/einstein/output_{img_size}_{style_weight}_{num_steps}.png")
 
     total_time = time.time() - start_time
     print(total_time)
